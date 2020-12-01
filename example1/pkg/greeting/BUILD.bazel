@@ -1,0 +1,8 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "greeting",
+    srcs = ["greeting.go"],
+    importpath = "github.com/ceperapl/go-bazel-tutorial/example1/pkg/greeting",
+    visibility = ["//visibility:public"],
+)

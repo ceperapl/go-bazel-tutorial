@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "pb";
+
+package helloworld;
+
+import "google/api/annotations.proto";
+
+service Greeter {
+    rpc SayHello (HelloRequest) returns (HelloReply) {
+        option (google.api.http) = {
+            get: "/hello/{name}"
+        };
+    }
+}
+
+message HelloRequest {
+    string name = 1;
+}
+
+message HelloReply {
+    string message = 1;
+}

@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "handlers",
+    srcs = [
+        "hello.go",
+        "panic.go",
+    ],
+    importpath = "github.com/ceperapl/go-bazel-tutorial/example2/pkg/http/handlers",
+    visibility = ["//visibility:public"],
+    deps = ["@com_github_gorilla_mux//:mux"],
+)
+
+go_test(
+    name = "handlers_test",
+    srcs = ["handlers_test.go"],
+    embed = [":handlers"],
+    deps = ["@com_github_gorilla_mux//:mux"],
+)

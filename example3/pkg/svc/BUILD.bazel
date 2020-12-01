@@ -1,0 +1,16 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "svc",
+    srcs = ["greeter.go"],
+    importpath = "github.com/ceperapl/go-bazel-tutorial/example3/pkg/svc",
+    visibility = ["//visibility:public"],
+    deps = ["//pkg/pb"],
+)
+
+go_test(
+    name = "svc_test",
+    srcs = ["greeter_test.go"],
+    embed = [":svc"],
+    deps = ["//pkg/pb"],
+)

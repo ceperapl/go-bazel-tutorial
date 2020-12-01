@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "middlewares",
+    srcs = [
+        "logger.go",
+        "multiple.go",
+        "recover.go",
+    ],
+    importpath = "github.com/ceperapl/go-bazel-tutorial/example2/pkg/http/middlewares",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "middlewares_test",
+    srcs = ["middlewares_test.go"],
+    embed = [":middlewares"],
+    deps = ["//pkg/http/handlers"],
+)

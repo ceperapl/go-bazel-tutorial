@@ -1,0 +1,13 @@
+load("@bazel_gazelle//:def.bzl", "gazelle")
+
+gazelle(
+    name = "gazelle",
+    prefix = "github.com/ceperapl/go-bazel-tutorial/example3",
+)
+
+load("@rules_proto_grpc//github.com/grpc-ecosystem/grpc-gateway:defs.bzl", "gateway_grpc_compile")
+
+gateway_grpc_compile(
+    name = "api_gateway_grpc",
+    deps = ["//pkg/pb:pb_proto"],
+)
