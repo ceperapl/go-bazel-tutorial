@@ -8,7 +8,7 @@ go_library(
     deps = [
         "//pkg/http/handlers",
         "//pkg/http/middlewares",
-        "@com_github_gorilla_mux//:mux",
+        "@com_github_gorilla_mux//:go_default_library",
     ],
 )
 

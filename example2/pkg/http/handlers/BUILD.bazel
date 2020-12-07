@@ -8,12 +8,12 @@ go_library(
     ],
     importpath = "github.com/ceperapl/go-bazel-tutorial/example2/pkg/http/handlers",
     visibility = ["//visibility:public"],
-    deps = ["@com_github_gorilla_mux//:mux"],
+    deps = ["@com_github_gorilla_mux//:go_default_library"],
 )
 
 go_test(
     name = "handlers_test",
     srcs = ["handlers_test.go"],
     embed = [":handlers"],
-    deps = ["@com_github_gorilla_mux//:mux"],
+    deps = ["@com_github_gorilla_mux//:go_default_library"],
 )
