@@ -78,3 +78,33 @@ bazel test ...
 bazel test //pkg/http/handlers:handlers_test
 bazel test //pkg/http/middlewares:middlewares_test
 ```
+
+## Build Docker image
+
+```
+bazel build --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64 //cmd/server:example2_server_image
+bazel run --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64 //cmd/server:example2_server_image
+```
+
+## Check image
+
+```
+docker images | grep example2
+> pazdniakousiarhei/cmd/server   example2_server_image   1abbe2c0fced   51 years ago   11.2MB
+```
+
+## Run in Docker container
+
+```
+docker run --rm -p 8080:8080 pazdniakousiarhei/cmd/server:example2_server_image
+```
+
+## Curl requests
+
+```
+curl --request GET http://localhost:8080/hello/Siarhei%20Pazdniakou
+> Hello Siarhei Pazdniakou
+
+curl --request POST http://localhost:8080/panic
+> Internal Server Error
+```

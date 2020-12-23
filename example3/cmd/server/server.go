@@ -25,6 +25,8 @@ func main() {
 	serverPort := flag.String("server.port", defaultServerPort, "port of gRPC server")
 	gatewayPort := flag.String("gateway.port", defaultGatewayPort, "port of gateway http server")
 
+	flag.Parse()
+
 	lis, err := net.Listen("tcp", ":"+*serverPort)
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)

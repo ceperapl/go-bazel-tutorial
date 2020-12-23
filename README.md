@@ -16,6 +16,14 @@ The third example demonstrates building and testing a service (server and client
 
 ## TODO
 
-- Build Docker images using Bazel
 - Show test coverage with Bazel
 
+## Issues
+
+- There is a possibility that after installing the bazel on Ubuntu 20.04, it will be necessary to fix a python-related error when building docker images.
+
+```
+sudo apt install python-is-python3
+```
+
+- After building Docker images we have images created around 51 years ago (see readme for example2 and example3)
